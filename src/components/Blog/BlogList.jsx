@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { createClient } from 'contentful';
+import { Link } from 'react-router-dom';
+import client from '../ContentfulClient/Client';
+
 
 const BlogList = () => {
     const [blogPosts, setBlogPosts] = useState([]);
 
-    const client = createClient({
-        space: 'hv2y56ee5hlc',
-        environment: 'master',
-        accessToken: 'IOVmiy-ffyMrCg6mifuRoI3Mlcdm5VVNuu4W3I8R_Jg'
-    });
+
 
     useEffect(() => {
         const getAllEntries = async () => {
@@ -34,6 +32,8 @@ const BlogList = () => {
                     <p>Author: {post.fields.author}</p>
                     <h2>{post.fields.title}</h2>
                     <p>{post.fields.text}</p>
+                    <p>{post.fields.categoryList}</p>
+                    <Link to={`/blogDetails/${post.sys.id}`} className='readMore'>Read more</Link>
                 </div>
             ))}
         </div>
