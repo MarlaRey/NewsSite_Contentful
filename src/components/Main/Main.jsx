@@ -3,6 +3,7 @@ import styles from './Main.module.scss';
 import BlogList from '../Blog/BlogList';
 import SortMenu from '../Navigation/Navigation';
 
+
 export const Main = () => {
     const [selectedCategory, setSelectedCategory] = useState("Alle");
 

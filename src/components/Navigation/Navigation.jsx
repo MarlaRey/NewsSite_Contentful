@@ -10,19 +10,17 @@ const SortMenu = ({ setSelectedCategory }) => {
       try {
         const entries = await client.getEntries({ content_type: 'category' });
         const categoryNames = entries.items.map(item => {
-          // Lav en array med alle kategorinavne fra fields
           const names = [];
-          for (let i = 1; i <= 7; i++) { // Antaget at du har 7 kategorier
+          for (let i = 1; i <= 7; i++) {
             if (item.fields[`categoryName${i}`]) {
               names.push(item.fields[`categoryName${i}`]);
             }
           }
           return names;
         });
-        // Flad arrayet af, da vi ønsker at have alle kategorinavne på samme niveau
+
         const flattenedCategoryNames = categoryNames.flat();
-        console.log(flattenedCategoryNames);
-        setCategories(flattenedCategoryNames);
+        setCategories(["Alle", ...flattenedCategoryNames]); // Tilføj "Alle" som det første element
       } catch (error) {
         console.log("Error fetching categories:", error);
       }
@@ -32,16 +30,14 @@ const SortMenu = ({ setSelectedCategory }) => {
   }, []);
 
   const handleCategoryClick = (categoryName) => {
-    setSelectedCategory(categoryName); // Opdater valgt kategori i Main
+    setSelectedCategory(categoryName);
   };
 
   return (
     <div className={styles.sortMenu}>
       {categories.map((categoryName, index) => (
         <div key={index} className={styles.categoryLinks}>
-          <button
-            onClick={() => handleCategoryClick(categoryName)}
-          >
+          <button onClick={() => handleCategoryClick(categoryName)}>
             {categoryName}
           </button>
         </div>

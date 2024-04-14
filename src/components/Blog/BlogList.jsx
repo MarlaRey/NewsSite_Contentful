@@ -4,25 +4,22 @@ import useBlogPosts from '../GetAllEntries/GetAllEntries';
 import styles from './BlogList.module.scss';
 
 const BlogList = ({ categoryList }) => {
-  console.log("Selected category:", categoryList); // Tilføjet til fejlfinding
   const allBlogPosts = useBlogPosts(); // Hent alle blogposter
   
-  console.log("All blog posts:", allBlogPosts); // Tilføjet til fejlfinding
 
-  const filteredBlogPosts = allBlogPosts.filter(post => {
-    // Hvis kategorien er "Alle", vises alle blogposter
-    if (!categoryList || categoryList === "Alle") {
-      return true;
-    }
-    // Sikre, at post.fields.categoryList er defineret før filtrering
-    if (post.fields.categoryList && post.fields.categoryList.includes(categoryList)) {
-      return true;
-    }
-    return false;
-  });
-  
+const filteredBlogPosts = allBlogPosts.filter(post => {
+  // Hvis kategorien er "Alle", vises alle blogposter
+  if (!categoryList || categoryList === "Alle") {
+    return true;
+  }
+  // Sikre, at post.fields.categoryList er defineret før filtrering
+  if (post.fields.categoryList && post.fields.categoryList.includes(categoryList)) {
+    return true;
+  }
+  return false;
+});
 
-  console.log("Filtered blog posts:", filteredBlogPosts); // Tilføjet til fejlfinding
+
 
   return (
     <div>

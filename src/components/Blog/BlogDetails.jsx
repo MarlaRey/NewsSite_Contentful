@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import client from '../ContentfulClient/Client';
-import CategoryFilter from '../Navigation/Navigation';
+import SortMenu from '../Navigation/Navigation';
 
 const BlogDetails = () => {
   const [singleBlogPost, setSingleBlogPost] = useState(null);
   const { id } = useParams();
+  const [selectedCategory, setSelectedCategory] = useState("Alle");
+
 
   useEffect(() => {
     const getEntryById = async () => {
@@ -21,7 +23,7 @@ const BlogDetails = () => {
 
   return (
     <div>
-      <CategoryFilter/>
+       <SortMenu setSelectedCategory={setSelectedCategory} />
       <Link to="/">Back to headlines</Link>
       {singleBlogPost && (
         <div className="blog-post" key={singleBlogPost.sys.id}>
@@ -40,3 +42,4 @@ const BlogDetails = () => {
 };
 
 export default BlogDetails;
+
