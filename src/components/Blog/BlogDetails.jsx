@@ -1,6 +1,6 @@
 // BlogDetails.jsx
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import client from '../ContentfulClient/Client';
 import SortMenu from '../Navigation/Navigation';
 import BlogList from './BlogList'; // Importer BlogList-komponenten
@@ -31,7 +31,6 @@ const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
   return (
     <div>
       <SortMenu setSelectedCategory={setSelectedCategory} />
-      <Link to="/">Back to headlines</Link>
       {singleBlogPost && (
         <div className="blog-post" key={singleBlogPost.sys.id}>
           {singleBlogPost.fields.media && singleBlogPost.fields.media.fields.file && (

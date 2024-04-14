@@ -1,3 +1,23 @@
-Link{
-    padding: 1rem;
-gap: 1rem;}
+.sortMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28.13px;
+  
+    .categoryLinks {
+      margin: 0 10px; // Juster afstanden mellem kategorier efter behov
+    }
+  
+    a {
+      color: black; // Juster farven efter behov
+      text-decoration: none;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: #333; // Ændre farven ved hover efter behov
+      }
+    }
+  }

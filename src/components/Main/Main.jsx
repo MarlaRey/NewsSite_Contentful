@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Main.module.scss';
 import BlogList from '../Blog/BlogList';
 import SortMenu from '../Navigation/Navigation';
+import BlogGrid from '../Blog/BlogGrid';
 
 
 export const Main = () => {
