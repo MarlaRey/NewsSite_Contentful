@@ -1,6 +1,8 @@
+// SortMenu.jsx
 import React, { useEffect, useState } from 'react';
 import client from '../ContentfulClient/Client';
 import styles from './Navigation.module.scss';
+import { Link } from 'react-router-dom'; // Importer Link fra react-router-dom
 
 const SortMenu = ({ setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
@@ -20,7 +22,7 @@ const SortMenu = ({ setSelectedCategory }) => {
         });
 
         const flattenedCategoryNames = categoryNames.flat();
-        setCategories(["Alle", ...flattenedCategoryNames]); // Tilføj "Alle" som det første element
+        setCategories(["Alle", ...flattenedCategoryNames]);
       } catch (error) {
         console.log("Error fetching categories:", error);
       }
@@ -30,16 +32,15 @@ const SortMenu = ({ setSelectedCategory }) => {
   }, []);
 
   const handleCategoryClick = (categoryName) => {
-    setSelectedCategory(categoryName);
+    setSelectedCategory(categoryName); // Opdater selectedCategory
   };
 
   return (
     <div className={styles.sortMenu}>
       {categories.map((categoryName, index) => (
         <div key={index} className={styles.categoryLinks}>
-          <button onClick={() => handleCategoryClick(categoryName)}>
-            {categoryName}
-          </button>
+          {/* Brug Link til at navigere tilbage til hovedsiden med den valgte kategori */}
+          <Link to={`/?category=${encodeURIComponent(categoryName)}`} onClick={() => handleCategoryClick(categoryName)}>{categoryName}</Link>
         </div>
       ))}
     </div>

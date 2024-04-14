@@ -1,13 +1,13 @@
+// BlogDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import client from '../ContentfulClient/Client';
 import SortMenu from '../Navigation/Navigation';
+import BlogList from './BlogList'; // Importer BlogList-komponenten
 
-const BlogDetails = () => {
+const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
   const [singleBlogPost, setSingleBlogPost] = useState(null);
   const { id } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState("Alle");
-
 
   useEffect(() => {
     const getEntryById = async () => {
@@ -21,9 +21,16 @@ const BlogDetails = () => {
     getEntryById();
   }, [id]);
 
+  // Lyt efter ændringer i selectedCategory og opdater blogpostene
+  useEffect(() => {
+    if (singleBlogPost) {
+      setSelectedCategory(singleBlogPost.fields.categoryList); // Opdater selectedCategory med kategorien fra den aktuelle blogpost
+    }
+  }, [singleBlogPost, setSelectedCategory]);
+
   return (
     <div>
-       <SortMenu setSelectedCategory={setSelectedCategory} />
+      <SortMenu setSelectedCategory={setSelectedCategory} />
       <Link to="/">Back to headlines</Link>
       {singleBlogPost && (
         <div className="blog-post" key={singleBlogPost.sys.id}>
@@ -37,9 +44,9 @@ const BlogDetails = () => {
           <p>{singleBlogPost.fields.categoryList}</p>
         </div>
       )}
+      <BlogList categoryList={selectedCategory} /> {/* Pass categoryList som prop til BlogList */}
     </div>
   );
 };
 
 export default BlogDetails;
-
