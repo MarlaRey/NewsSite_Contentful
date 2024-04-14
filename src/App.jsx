@@ -12,9 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/blogDetails/:id" element={<BlogDetails/>} />
-          <Route path="/blogList" element={<BlogList/>} />
-          <Route path="/main" element={<Main/>} />
-          <Route path="/" element={<BlogList/>} />
+          <Route path="/" element={<Main/>} />
         </Routes>
       </Router>
     </>

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Main.module.scss';
-import client from '../ContentfulClient/Client';
-import { News } from '../News/News';
-
+import BlogList from '../Blog/BlogList';
+import SortMenu from '../Navigation/Navigation';
 
 export const Main = () => {
+    const [selectedCategory, setSelectedCategory] = useState("Alle");
 
     return (
-        <>
-            <News></News>
-        </>
+      <div>
+        <SortMenu setSelectedCategory={setSelectedCategory} />
+        <BlogList categoryList={selectedCategory} />
+      </div>
     );
 };
+
+export default Main;

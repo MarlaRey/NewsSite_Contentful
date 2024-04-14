@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import client from '../ContentfulClient/Client';
+import CategoryFilter from '../Navigation/Navigation';
 
 const BlogDetails = () => {
   const [singleBlogPost, setSingleBlogPost] = useState(null);
@@ -10,7 +11,6 @@ const BlogDetails = () => {
     const getEntryById = async () => {
       try {
         const entry = await client.getEntry(id);
-        console.log(entry);
         setSingleBlogPost(entry);
       } catch (error) {
         console.log(error);
@@ -19,11 +19,10 @@ const BlogDetails = () => {
     getEntryById();
   }, [id]);
 
-  console.log(singleBlogPost);
-
   return (
     <div>
-      <Link to="/blogList">Back to headlines</Link>
+      <CategoryFilter/>
+      <Link to="/">Back to headlines</Link>
       {singleBlogPost && (
         <div className="blog-post" key={singleBlogPost.sys.id}>
           {singleBlogPost.fields.media && singleBlogPost.fields.media.fields.file && (
