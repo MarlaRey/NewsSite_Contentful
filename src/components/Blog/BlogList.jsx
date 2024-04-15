@@ -6,6 +6,7 @@ import styles from './BlogList.module.scss';
 const BlogList = ({ categoryList }) => {
   const allBlogPosts = useBlogPosts(); // Hent alle blogposter
 
+
   const filteredBlogPosts = allBlogPosts.filter(post => {
     // Hvis kategorien er "Alle", vises alle blogposter
     if (!categoryList || categoryList === "Alle") {
@@ -20,16 +21,16 @@ const BlogList = ({ categoryList }) => {
 
   return (
     <div className={styles.blogGrid}>
-      {/* Vis de filtrerede blogposter */}
       {filteredBlogPosts.map((post, index) => (
         <div className={styles.blogPost} key={post.sys.id} style={{ gridArea: getGridArea(index) }}>
-          {post.fields.media && post.fields.media.fields.file && (
-            <img src={post.fields.media.fields.file.url} alt={post.fields.title} />
-          )}
-          <p>Date: {post.fields.date}</p>
+                    <p>Date: {post.fields.date}</p>
           <p>Author: {post.fields.author}</p>
           <h2>{post.fields.title}</h2>
           <p>{post.fields.text}</p>
+          {post.fields.media && post.fields.media.fields.file && (
+            <img src={post.fields.media.fields.file.url} alt={post.fields.title} />
+          )}
+
           <p>{post.fields.categoryList}</p>
           <Link to={`/blogDetails/${post.sys.id}`} className={styles.readMore}>Read more</Link>
         </div>
@@ -60,6 +61,8 @@ const getGridArea = (index) => {
     case 8:
       return 'i';
   }
+  
 };
+
 
 export default BlogList;

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import client from '../ContentfulClient/Client';
 import SortMenu from '../Navigation/Navigation';
 import BlogList from './BlogList'; // Importer BlogList-komponenten
+import styles from './BlogDetails.module.scss';
 
 const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
   const [singleBlogPost, setSingleBlogPost] = useState(null);
@@ -32,7 +33,7 @@ const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
     <div>
       <SortMenu setSelectedCategory={setSelectedCategory} />
       {singleBlogPost && (
-        <div className="blog-post" key={singleBlogPost.sys.id}>
+        <div className={styles.blogPost} key={singleBlogPost.sys.id}>
           {singleBlogPost.fields.media && singleBlogPost.fields.media.fields.file && (
             <img src={singleBlogPost.fields.media.fields.file.url} alt={singleBlogPost.fields.title} />
           )}

@@ -1,23 +1,52 @@
 .sortMenu {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.13px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  padding: 1rem;
+  position: relative;
+
+  .theMenu {
+    max-width: 60%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28.13px;
-  
+    margin: auto;
+
     .categoryLinks {
-      margin: 0 10px; // Juster afstanden mellem kategorier efter behov
-    }
-  
-    a {
-      color: black; // Juster farven efter behov
-      text-decoration: none;
-      transition: color 0.3s ease;
-  
-      &:hover {
-        color: #333; // Ændre farven ved hover efter behov
+      margin: 0; // Juster afstanden mellem kategorier efter behov
+      position: relative; // Gør det muligt at positionere pseudoelementet i forhold til dette element
+
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        background-color: #333; // Farven på divideren
+        right: -1rem; // Placer divideren til højre for dette element
+        top: 1rem; // Placer divideren i toppen af dette element
+        transform: translateY(-50%); // Centrer divideren vertikalt
       }
     }
   }
+
+  a {
+    color: black; // Juster farven efter behov
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #333; // Ændre farven ved hover efter behov
+    }
+  }
+
+  .logo {
+    width: 7%;
+    position: absolute;
+    margin-top: 0rem;
+    margin-left: 9%;
+  }
+}

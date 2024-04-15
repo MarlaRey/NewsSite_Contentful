@@ -1,11 +1,11 @@
-// SortMenu.jsx
 import React, { useEffect, useState } from 'react';
 import client from '../ContentfulClient/Client';
 import styles from './Navigation.module.scss';
-import { Link } from 'react-router-dom'; // Importer Link fra react-router-dom
+import { Link } from 'react-router-dom';
 
 const SortMenu = ({ setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
+  const [logoUrl, setLogoUrl] = useState(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -27,22 +27,43 @@ const SortMenu = ({ setSelectedCategory }) => {
         console.log("Error fetching categories:", error);
       }
     };
-    
+
     fetchCategories();
+
   }, []);
 
+  useEffect(() => {
+    const fetchLogo = async () => {
+      try {
+        const entries = await client.getEntries();
+        const logoUrl = entries.items[0]?.fields.logo.fields.file.url;
+        setLogoUrl(logoUrl);
+        console.log(logoUrl);
+      } catch (error) {
+        console.log("Error fetching logo:", error);
+      }
+    };
+    
+    fetchLogo();
+  }, []);
+  
+
   const handleCategoryClick = (categoryName) => {
-    setSelectedCategory(categoryName); // Opdater selectedCategory
+    setSelectedCategory(categoryName);
   };
 
   return (
     <div className={styles.sortMenu}>
-      {categories.map((categoryName, index) => (
-        <div key={index} className={styles.categoryLinks}>
-          {/* Brug Link til at navigere tilbage til hovedsiden med den valgte kategori */}
-          <Link to={`/?category=${encodeURIComponent(categoryName)}`} onClick={() => handleCategoryClick(categoryName)}>{categoryName}</Link>
-        </div>
-      ))}
+      <div className={styles.logo}>
+        {logoUrl && <img src={logoUrl} alt="Logo" />}
+      </div>
+      <div className={styles.theMenu}>
+        {categories.map((categoryName, index) => (
+          <div key={index} className={styles.categoryLinks}>
+            <Link to={`/?category=${encodeURIComponent(categoryName)}`} onClick={() => handleCategoryClick(categoryName)}>{categoryName}</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
