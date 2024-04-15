@@ -23,14 +23,16 @@ const BlogList = ({ categoryList }) => {
     <div className={styles.blogGrid}>
       {filteredBlogPosts.map((post, index) => (
         <div className={styles.blogPost} key={post.sys.id} style={{ gridArea: getGridArea(index) }}>
-                    <p>Date: {post.fields.date}</p>
-          <p>Author: {post.fields.author}</p>
-          <h2>{post.fields.title}</h2>
-          <p>{post.fields.text}</p>
+                    <h2>{post.fields.title}</h2>
+                    <p>{post.fields.text}</p>
+          <p className={styles.red}>Dato: {post.fields.date} - Af: {post.fields.author}</p>
+
+
+   <div className={styles.imageContainer}>
           {post.fields.media && post.fields.media.fields.file && (
             <img src={post.fields.media.fields.file.url} alt={post.fields.title} />
           )}
-
+</div>
           <p>{post.fields.categoryList}</p>
           <Link to={`/blogDetails/${post.sys.id}`} className={styles.readMore}>Read more</Link>
         </div>

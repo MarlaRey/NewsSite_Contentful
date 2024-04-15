@@ -8,6 +8,7 @@
   margin-top: 0;
   padding: 1rem;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 
   .theMenu {
     max-width: 60%;
@@ -44,9 +45,9 @@
   }
 
   .logo {
-    width: 7%;
+    width: 5vw;
     position: absolute;
     margin-top: 0rem;
-    margin-left: 9%;
+    margin-left: 10%;
   }
 }

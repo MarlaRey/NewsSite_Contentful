@@ -36,7 +36,8 @@ const SortMenu = ({ setSelectedCategory }) => {
     const fetchLogo = async () => {
       try {
         const entries = await client.getEntries();
-        const logoUrl = entries.items[0]?.fields.logo.fields.file.url;
+        console.log(entries.items[10]); 
+        const logoUrl = entries.items[10]?.fields.logo.fields.file.url; // Opdater til at hente logo fra det rigtige sted
         setLogoUrl(logoUrl);
         console.log(logoUrl);
       } catch (error) {
