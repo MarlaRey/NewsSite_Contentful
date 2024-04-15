@@ -1,0 +1,42 @@
+
+
+.blogGrid {
+    display: grid;
+    grid-template-areas: 
+      "a a a a"
+      "b b c c"
+      "b b d d"
+      "e e d d"
+      "f f f f"
+      "g g g g"
+      "h h i i";
+    grid-gap: 20px;
+  }
+  
+  .blogPost {
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .readMore {
+    display: inline-block;
+    margin-top: 10px;
+    color: blue;
+  }
+  
+  /* Responsivt layout */
+  @media (max-width: 768px) {
+    .blogGrid {
+      grid-template-areas: 
+        "a a"
+        "b b"
+        "c c"
+        "d d"
+        "e e"
+        "f f"
+        "g g"
+        "h h"
+        "i i";
+    }
+  }
+  
