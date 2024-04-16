@@ -37,11 +37,14 @@ const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
           {singleBlogPost.fields.media && singleBlogPost.fields.media.fields.file && (
             <img src={singleBlogPost.fields.media.fields.file.url} alt={singleBlogPost.fields.title} />
           )}
-          <p>Date: {singleBlogPost.fields.date}</p>
-          <p>Author: {singleBlogPost.fields.author}</p>
+          <div className={styles.text}>
           <h2>{singleBlogPost.fields.title}</h2>
+          <p>Date: {singleBlogPost.fields.date} Af:{singleBlogPost.fields.author}</p>
+      
+          
           <p>{singleBlogPost.fields.text}</p>
-          <p>{singleBlogPost.fields.categoryList}</p>
+          <p>{singleBlogPost.fields.categoryList && singleBlogPost.fields.categoryList.join(' ')}</p>
+          </div>
         </div>
       )}
       <BlogList categoryList={selectedCategory} /> {/* Pass categoryList som prop til BlogList */}

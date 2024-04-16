@@ -1,5 +1,28 @@
 .blogPost {
+  background-color: #fff;
     max-width: 80%;
     margin: 0 auto; /* Centrerer indholdet */
-  }
+    h2 {
+      font-size: 40px;
+      font-weight: 400;
+      margin: 0;
+    }
+  
+    img{
+      width: 100%;
+    };
+    .text{
+      padding: 2rem
+    }
+    .text p:first-of-type{
+      color: red,
+    }
+    .text p:nth-last-of-type(2){
+      margin-left: 20rem;
+    }
+    .text p:last-of-type{
+      display: flex;
+      justify-content: end;
+
+    }}
   
