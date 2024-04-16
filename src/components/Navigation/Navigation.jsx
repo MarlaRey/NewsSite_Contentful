@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import client from '../ContentfulClient/Client';
 import styles from './Navigation.module.scss';
 import { Link } from 'react-router-dom';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import BurgerSortMenu from '../BurgerMenu/BurgerSortMenu'; // Importer BurgerSortMenu
 
 const SortMenu = ({ setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
   const [logoUrl, setLogoUrl] = useState(null);
+  const [isOpen, setIsOpen] = useState(false); // Til burgermenuen
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -47,25 +50,32 @@ const SortMenu = ({ setSelectedCategory }) => {
     
     fetchLogo();
   }, []);
-  
 
   const handleCategoryClick = (categoryName) => {
     setSelectedCategory(categoryName);
   };
+  
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className={styles.sortMenu}>
-      <div className={styles.logo}>
-        {logoUrl && <img src={logoUrl} alt="Logo" />}
+    <>
+      <BurgerMenu isOpen={isOpen} toggleMenu={toggleMenu} /> {/* Indsæt burgermenuen */}
+      {isOpen && <BurgerSortMenu categories={categories} setSelectedCategory={setSelectedCategory} />} {/* Vis BurgerSortMenu, når burgermenuen er åben */}
+      <div className={styles.sortMenu}>
+        <div className={styles.logo}>
+          {logoUrl && <img src={logoUrl} alt="Logo" />}
+        </div>
+        <div className={styles.theMenu}>
+          {categories.map((categoryName, index) => (
+            <div key={index} className={styles.categoryLinks}>
+              <Link to={`/?category=${encodeURIComponent(categoryName)}`} onClick={() => handleCategoryClick(categoryName)}>{categoryName}</Link>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className={styles.theMenu}>
-        {categories.map((categoryName, index) => (
-          <div key={index} className={styles.categoryLinks}>
-            <Link to={`/?category=${encodeURIComponent(categoryName)}`} onClick={() => handleCategoryClick(categoryName)}>{categoryName}</Link>
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 

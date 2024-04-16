@@ -10,6 +10,33 @@
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 
+  .logo {
+    width: 5vw;
+    position: absolute;
+    margin-top: 0rem;
+    margin-left: 10%;
+  }
+
+  .menuIcon {
+    display: none; // Skjul burgerikonet som standard
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: block; // Vis burgerikonet, når skærmstørrelsen er mindre end 768px
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      z-index: 10;
+    }
+
+    .iconBar {
+      width: 35px;
+      height: 5px;
+      background-color: black;
+      margin: 6px 0;
+    }
+  }
+
   .theMenu {
     max-width: 60%;
     display: flex;
@@ -27,7 +54,7 @@
         height: 100%;
         width: 1px;
         background-color: #333; // Farven på divideren
-        right: -1rem; // Placer divideren til højre for dette element
+        right: -3rem; // Placer divideren til højre for dette element
         top: 1rem; // Placer divideren i toppen af dette element
         transform: translateY(-50%); // Centrer divideren vertikalt
       }
@@ -43,11 +70,11 @@
       color: #333; // Ændre farven ved hover efter behov
     }
   }
+}
 
-  .logo {
-    width: 5vw;
-    position: absolute;
-    margin-top: 0rem;
-    margin-left: 10%;
+
+@media (max-width: 768px) {
+  .sortMenu {
+    display: none;
   }
 }

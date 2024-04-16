@@ -1,0 +1,16 @@
+footer{
+    background-color: #fff;
+    height: 200px;
+    margin-top: 2rem;
+    section{
+        max-width: 80%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+    }
+    ul{
+        text-decoration: none;
+        list-style: none;
+
+    }
+}

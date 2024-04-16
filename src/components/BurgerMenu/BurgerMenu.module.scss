@@ -1,0 +1,35 @@
+.menuIcon {
+    display: none; // Skjul burgerikonet som standard
+    cursor: pointer;
+  
+    @media (max-width: 768px) {
+      display: block; // Vis burgerikonet, når skærmstørrelsen er mindre end 768px
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      z-index: 10;
+    }
+  
+    .iconBar {
+      width: 35px;
+      height: 5px;
+      background-color: black;
+      margin: 6px 0;
+      transition: all 0.3s ease;
+    }
+  
+    &.open {
+      .iconBar:nth-child(1) {
+        transform: rotate(-45deg) translate(-9px, 7px);
+      }
+  
+      .iconBar:nth-child(2) {
+        opacity: 0;
+      }
+  
+      .iconBar:nth-child(3) {
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+    }
+  }
+  
