@@ -1,7 +1,8 @@
 .blogPost {
+  max-width: 1200px; // Eksempel på en maksimal bredde på 1200px
+  margin: 0 auto; // Centrer menuen på siden
   background-color: #fff;
-    max-width: 80%;
-    margin: 0 auto; /* Centrerer indholdet */
+
     h2 {
       font-size: 40px;
       font-weight: 400;
@@ -19,6 +20,7 @@
     }
     .text p:nth-last-of-type(2){
       margin-left: 20rem;
+
     }
     .text p:last-of-type{
       display: flex;
@@ -26,3 +28,10 @@
 
     }}
   
+    /* Responsivt layout */
+@media (max-width: 768px) {
+  .blogPost .text p:nth-last-of-type(2){
+    margin-left: 0rem;
+
+  }
+}

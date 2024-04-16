@@ -1,6 +1,6 @@
 .blogGrid {
-  max-width: 80%;
-  margin: 0 auto;
+  max-width: 1200px; // Eksempel på en maksimal bredde på 1200px
+  margin: 0 auto; // Centrer menuen på siden
   display: grid;
   grid-template-areas:
     "a a a a"

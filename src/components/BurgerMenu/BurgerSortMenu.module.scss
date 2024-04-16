@@ -1,0 +1,24 @@
+.burgerSortMenu {
+    background-color: #fff;
+    padding: 1rem;
+  
+    ul {
+      list-style: none;
+
+      padding-left: 1rem;
+    }
+  
+    li {
+      margin-bottom: 0.5rem; /* Tilføj lidt afstand mellem listeelementerne */
+    }
+  
+    a {
+      text-decoration: none;
+      color: #000; /* Tilføj farve til linkene */
+      transition: color 0.3s ease; /* Tilføj overgangseffekt til farven */
+    }
+  
+    a:hover {
+      text-decoration: underline;
+    }
+  }
