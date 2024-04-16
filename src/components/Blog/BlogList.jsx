@@ -28,17 +28,20 @@ const BlogList = ({ categoryList }) => {
   return (
     <div className={styles.blogGrid}>
       {filteredBlogPosts.map((post, index) => (
-        <div className={styles.blogPost} key={post.sys.id} style={{ gridArea: getGridArea(index) }}>
+        <div className={styles.blogPost} key={post.sys.id} style={{ gridArea: getGridArea(index) }} data-grid-area={getGridArea(index)}>
+
           <h2>{post.fields.title}</h2>
+
           {/* Viser kun tekst hvis gridArea er 'a', 'f' eller 'g' */}
           {(() => {
             const gridArea = getGridArea(index);
             if (gridArea === 'a' || gridArea === 'f' || gridArea === 'g') {
-              return <p>{truncateText(post.fields.text, 150)}</p>;
+              return <p className={styles.blogText}>{truncateText(post.fields.text, 150)}</p>;
             } else {
               return null;
             }
           })()}
+
           <p className={styles.red}>Dato: {post.fields.date} - Af: {post.fields.author}</p>
 
           <div className={styles.imageContainer}>
@@ -46,7 +49,9 @@ const BlogList = ({ categoryList }) => {
               <img src={post.fields.media.fields.file.url} alt={post.fields.title} />
             )}
           </div>
-          <p>{post.fields.categoryList}</p>
+
+          <p className={styles.categories}>{post.fields.categoryList && post.fields.categoryList.join(' ')}</p>
+
           <Link to={`/blogDetails/${post.sys.id}`} className={styles.readMore}>Read more</Link>
         </div>
       ))}

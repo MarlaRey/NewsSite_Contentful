@@ -22,13 +22,13 @@
   h2 {
     font-size: 40px;
     font-weight: 400;
+    margin: 0;
   }
 
   p {
     font-size: 16px;
     font-weight: 400;
   }
-
 }
 
 .imageContainer {
@@ -65,5 +65,122 @@
       "g g"
       "h h"
       "i i";
+  }
+}
+
+/* Styling for de specifikke grid-områder */
+.blogPost[data-grid-area='a'] {
+  img{
+    height: 435px;
+  }
+}
+
+.blogPost[data-grid-area='b'] {
+  h2{
+    height: 100px;
+  }
+  img{
+    height: 492px;
+  }
+}
+
+
+.blogPost[data-grid-area='c'] {
+  h2{
+    height: 100px;
+  }
+  img{
+    height: 183px;
+  }
+}
+
+.blogPost[data-grid-area='d'] {
+  img{
+    height: 492px;
+  }
+}
+
+.blogPost[data-grid-area='e'] {
+  img{
+    height: 183px;
+  }
+}
+
+
+.blogPost[data-grid-area='f'] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:1fr;
+  gap: 1rem;
+
+  .imageContainer {
+    grid-column: 1; // Placerer containeren til venstre
+    grid-row: 1;
+    width: 510px;
+  }
+
+  > * {
+    grid-column: 2; // Placerer alt andet til højre
+    grid-row: 1;
+  }
+  h2{
+    margin-top:3rem;
+  }
+  .red{
+    margin-top: 6.5rem;
+  }
+.readMore{
+  margin-top: 16rem;
+}
+.blogText{
+  margin-top: 9.5rem;
+}
+
+}
+.blogPost[data-grid-area='g'] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:1fr;
+  gap: 1rem;
+
+  > * {
+    grid-column: 1; // Placerer containeren til venstre
+    grid-row: 1;
+    width: 510px;
+  }
+
+  .imageContainer {
+    grid-column: 2; // Placerer alt andet til højre
+    grid-row: 1;
+  }
+  h2{
+    margin-top:3rem;
+  }
+  .red{
+    margin-top: 9.5rem;
+  }
+.readMore{
+  margin-top: 16rem;
+}
+.blogText{
+  margin-top: 11.5rem;
+}
+
+}
+
+.blogPost[data-grid-area='h'] {
+  h2{
+    height: 100px;
+  }
+  img{
+    height: 183px;
+  }
+}
+.blogPost[data-grid-area='i'] {
+  h2{
+    height: 100px;
+  }
+  img{
+    height: 183px;
   }
 }
