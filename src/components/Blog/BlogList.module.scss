@@ -36,6 +36,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: center;
   }
 }
 
@@ -81,6 +82,7 @@
   }
   img{
     height: 492px;
+    object-position: bottom;
   }
 }
 
@@ -91,6 +93,7 @@
   }
   img{
     height: 183px;
+    object-position: bottom;
   }
 }
 
@@ -103,6 +106,7 @@
 .blogPost[data-grid-area='e'] {
   img{
     height: 183px;
+    object-position: top;
   }
 }
 
@@ -131,13 +135,13 @@
     margin-top:3rem;
   }
   .red{
-    margin-top: 6.5rem;
+    margin-top: 9.5rem;
   }
 .readMore{
   margin-top: 16rem;
 }
 .blogText{
-  margin-top: 9.5rem;
+  margin-top: 11.5rem;
 }
 
 }
@@ -182,6 +186,7 @@
   }
   img{
     height: 183px;
+    object-position: center;
   }
 }
 .blogPost[data-grid-area='i'] {
