@@ -20,7 +20,7 @@ const BlogList = ({ categoryList }) => {
     if (!categoryList || categoryList === "Alle") {
       return true;
     }
-    // Sikre, at post.fields.categoryList er defineret før filtrering
+    // Sikrer at post.fields.categoryList er defineret før filtrering
     if (post.fields.categoryList && post.fields.categoryList.includes(categoryList)) {
       return true;
     }

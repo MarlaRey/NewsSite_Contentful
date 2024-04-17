@@ -11,10 +11,8 @@ export const Main = () => {
       <div>
         {/* Rendér SortMenu-komponenten og send setSelectedCategory som prop */}
         <SortMenu setSelectedCategory={setSelectedCategory} />
-        
         {/* Rendér BlogList-komponenten og send selectedCategory som prop */}
         <BlogList categoryList={selectedCategory} />
-        
         {/* Rendér Footer-komponenten */}
         <Footer></Footer>
       </div>

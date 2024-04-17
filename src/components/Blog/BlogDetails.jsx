@@ -5,6 +5,7 @@ import client from '../ContentfulClient/Client';
 import SortMenu from '../Navigation/Navigation';
 import BlogList from './BlogList'; // Importer BlogList-komponenten
 import styles from './BlogDetails.module.scss';
+import { Footer } from '../Footer/Footer';
 
 const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
   const [singleBlogPost, setSingleBlogPost] = useState(null);
@@ -49,6 +50,7 @@ const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
         </div>
       )}
       <BlogList categoryList={selectedCategory} /> {/* Videregiv categoryList som prop til BlogList */}
+      <Footer></Footer>
     </div>
   );
 };
