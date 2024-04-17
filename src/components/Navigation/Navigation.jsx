@@ -70,10 +70,11 @@ const SortMenu = ({ setSelectedCategory }) => {
       <BurgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
       {isOpen && <BurgerSortMenu categories={categories} setSelectedCategory={setSelectedCategory} />} {/* Betinget rendering: Hvis isOpen er true, betyder det, at burgermenuen er åben. I dette tilfælde renderes BurgerSortMenu komponenten.BurgerSortMenu komponenten modtager to props: categories og setSelectedCategory.  */}
       <div className={styles.sortMenu}>
+
+        <div className={styles.theMenu}>
         <div className={styles.logo}>
           {logoUrl && <img src={logoUrl} alt="Logo" />} {/*kort betinget rendering, der tjekker om logoUrl har en værdi. Hvis logoUrl er sand, renderes <img>-elementet med logoet. Hvis logoUrl er falsk (f.eks. null eller undefined), renderes intet. */}
         </div>
-        <div className={styles.theMenu}>
           {/* Mapping over categories arrayet. For hver kategori i arrayet udføres handlingen at putte hvert kategorilink ind i en div med et link */}
           {categories.map((categoryName, index) => (
             <div key={index} className={styles.categoryLinks}>

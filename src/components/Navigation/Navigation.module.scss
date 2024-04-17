@@ -1,5 +1,5 @@
 .sortMenu {
-  
+
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -15,7 +15,7 @@
     width: 5vw;
     position: absolute;
     margin-top: 0rem;
-    margin-left: 10%;
+    margin-right: 68rem;
   }
 
   .menuIcon {
@@ -39,7 +39,7 @@
   }
 
   .theMenu {
-    max-width: 60%;
+    max-width: 700px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -55,7 +55,7 @@
         height: 100%;
         width: 1px;
         background-color: #333; // Farven på divideren
-        right: -3rem; // Placer divideren til højre for dette element
+        right: -1rem; // Placer divideren til højre for dette element
         top: 1rem; // Placer divideren i toppen af dette element
         transform: translateY(-50%); // Centrer divideren vertikalt
       }
