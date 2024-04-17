@@ -92,7 +92,7 @@
 .blogPost[data-grid-area='e'] {
   img{
     height: 183px;
-    object-position: top;
+
   }
 }
 
@@ -172,7 +172,8 @@
   }
   img{
     height: 183px;
-    object-position: center;
+    object-position: top;
+    ;
   }
 }
 .blogPost[data-grid-area='i'] {
