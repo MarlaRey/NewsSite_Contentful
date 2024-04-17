@@ -8,8 +8,9 @@ import styles from './BlogDetails.module.scss';
 
 const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
   const [singleBlogPost, setSingleBlogPost] = useState(null);
+  //Dette bruger useParams hook til at hente id'en for den aktuelle blogpost fra URL'en.
   const { id } = useParams();
-
+// henter blogpostdata fra Contentful ved hjælp af id'en.
   useEffect(() => {
     const getEntryById = async () => {
       try {
@@ -47,7 +48,7 @@ const BlogDetails = ({ setSelectedCategory, selectedCategory }) => {
           </div>
         </div>
       )}
-      <BlogList categoryList={selectedCategory} /> {/* Pass categoryList som prop til BlogList */}
+      <BlogList categoryList={selectedCategory} /> {/* Videregiv categoryList som prop til BlogList */}
     </div>
   );
 };

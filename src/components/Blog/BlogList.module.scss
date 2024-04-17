@@ -1,6 +1,6 @@
 .blogGrid {
-  max-width: 1200px; // Eksempel på en maksimal bredde på 1200px
-  margin: 0 auto; // Centrer menuen på siden
+  max-width: 1200px;
+  margin: 0 auto; 
   display: grid;
   grid-template-areas:
     "a a a a"
@@ -53,21 +53,7 @@
   color: blue;
 }
 
-/* Responsivt layout */
-@media (max-width: 768px) {
-  .blogGrid {
-    grid-template-areas:
-      "a a"
-      "b b"
-      "c c"
-      "d d"
-      "e e"
-      "f f"
-      "g g"
-      "h h"
-      "i i";
-  }
-}
+
 
 /* Styling for de specifikke grid-områder */
 .blogPost[data-grid-area='a'] {
@@ -195,5 +181,21 @@
   }
   img{
     height: 183px;
+  }
+}
+/* Responsivt layout */
+@media (max-width: 768px) {
+  .blogGrid {
+    width: 590px;
+    grid-template-areas:
+      "a a"
+      "b b"
+      "c c"
+      "d d"
+      "e e"
+      "f f"
+      "g g"
+      "h h"
+      "i i";
   }
 }

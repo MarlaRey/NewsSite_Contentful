@@ -8,7 +8,7 @@ export const Footer = () => {
 
 
     return (
-        <footer>
+        <footer className={styles.foot}>
             <section>
                 <article>
                     <ul><h3>LinkSection</h3>

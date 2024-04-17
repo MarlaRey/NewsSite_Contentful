@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import useBlogPosts from '../GetAllEntries/GetAllEntries';
 import styles from './BlogList.module.scss';
 
+//definerer en funktionel komponent kaldet BlogList, der modtager en prop kaldet categoryList. Denne prop indeholder navnet på den valgte kategori.
 const BlogList = ({ categoryList }) => {
-  const allBlogPosts = useBlogPosts(); // Hent alle blogposter
+  const allBlogPosts = useBlogPosts(); // Hent alle blogposter fra Contentful
 
+  //funktion der forkorter 'text', hvis den er længere end en vis længde.
   const truncateText = (text, maxLength) => {
     if (text && text.length > maxLength) {
       return text.substring(0, maxLength) + '...';
@@ -14,7 +16,7 @@ const BlogList = ({ categoryList }) => {
     }
   };
   const filteredBlogPosts = allBlogPosts.filter(post => {
-    // Hvis kategorien er "Alle", vises alle blogposter
+    // Hvis kategorien er "Alle" eller hvis categoryList ikke er defineret, vises alle blogposter
     if (!categoryList || categoryList === "Alle") {
       return true;
     }
@@ -27,12 +29,14 @@ const BlogList = ({ categoryList }) => {
 
   return (
     <div className={styles.blogGrid}>
+      {/*mapper over filteredBlogPosts og opretter container og unik nøgle til hver blogpost.Angiver derefter gridArea-egenskaben til hver*/}
       {filteredBlogPosts.map((post, index) => (
+    
         <div className={styles.blogPost} key={post.sys.id} style={{ gridArea: getGridArea(index) }} data-grid-area={getGridArea(index)}>
 
           <h2>{post.fields.title}</h2>
 
-          {/* Viser kun tekst hvis gridArea er 'a', 'f' eller 'g' */}
+          {/* Dette er en IIFE (Immediately Invoked Function Expression). Viser kun 'text' hvis gridArea er 'a', 'f' eller 'g' */}
           {(() => {
             const gridArea = getGridArea(index);
             if (gridArea === 'a' || gridArea === 'f' || gridArea === 'g') {
@@ -60,7 +64,7 @@ const BlogList = ({ categoryList }) => {
 };
 
 
-// Funktion til at returnere gridArea baseret på index
+// Denne funktion bruges til at returnere gridArea baseret på indeksen af blogposten. 
 const getGridArea = (index) => {
   switch (index) {
     case 0:
