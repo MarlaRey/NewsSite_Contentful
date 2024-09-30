@@ -10,33 +10,45 @@
     "f f f f"
     "g g g g"
     "h h i i"
+
   ;
   grid-gap: 20px;
 
   .red {
-    color: red;
+    color: #c90219;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
+  }
+  .categories {
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: end;
+   
   }
 
   h2 {
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
+    
   }
+  
 }
+
 
 .imageContainer {
   img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit:cover;
+   
   }
 }
 
@@ -44,72 +56,75 @@
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+text-decoration: none;
+color: black;
+&:hover{
+  h2, p:first-of-type{
+  text-decoration: underline;}
+}
 
 }
+
 
 .readMore {
   display: inline-block;
   margin-top: 10px;
   color: blue;
+  font-size: 0.7rem;
 }
-
-
 
 /* Styling for de specifikke grid-områder */
 .blogPost[data-grid-area='a'] {
-  img{
+  img {
     height: 435px;
+    
   }
 }
 
 .blogPost[data-grid-area='b'] {
-  h2{
+  h2 {
     height: 100px;
   }
-  img{
+  img {
     height: 492px;
     object-position: bottom;
   }
 }
 
-
 .blogPost[data-grid-area='c'] {
-  h2{
+  h2 {
     height: 100px;
   }
-  img{
+  img {
     height: 183px;
-    object-position: bottom;
+    object-position: center;
   }
 }
 
 .blogPost[data-grid-area='d'] {
-  img{
+  img {
     height: 492px;
   }
 }
 
 .blogPost[data-grid-area='e'] {
-  img{
+  img {
     height: 183px;
-
   }
 }
-
 
 .blogPost[data-grid-area='f'] {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows:1fr;
+  grid-template-rows: 1fr;
   gap: 2rem;
 
   .imageContainer {
     grid-column: 1; // Placerer containeren til venstre
     grid-row: 1;
     
-    img{
+    img {
       height: 312px;
-
     }
   }
 
@@ -117,24 +132,24 @@
     grid-column: 2; // Placerer alt andet til højre
     grid-row: 1;
   }
-  h2{
-    margin-top:3rem;
+  h2 {
+    margin-top: 3rem;
   }
-  .red{
+  .red {
     margin-top: 9.5rem;
   }
-.readMore{
-  margin-top: 16rem;
-}
-.blogText{
-  margin-top: 11.5rem;
+  .readMore {
+    margin-top: 16rem;
+  }
+  .blogText {
+    margin-top: 11.5rem;
+  }
 }
 
-}
 .blogPost[data-grid-area='g'] {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows:1fr;
+  grid-template-rows: 1fr;
   gap: 2rem;
 
   > * {
@@ -146,44 +161,43 @@
   .imageContainer {
     grid-column: 2; // Placerer alt andet til højre
     grid-row: 1;
-    img{
+    img {
       height: 312px;
-
     }
   }
-  h2{
-    margin-top:3rem;
+  h2 {
+    margin-top: 3rem;
   }
-  .red{
+  .red {
     margin-top: 9.5rem;
   }
-.readMore{
-  margin-top: 16rem;
-}
-.blogText{
-  margin-top: 11.5rem;
-}
-
+  .readMore {
+    margin-top: 16rem;
+  }
+  .blogText {
+    margin-top: 11.5rem;
+  }
 }
 
 .blogPost[data-grid-area='h'] {
-  h2{
-    height: 100px;
+  h2 {
+    height: 50px;
   }
-  img{
+  img {
     height: 183px;
     object-position: top;
-    ;
   }
 }
+
 .blogPost[data-grid-area='i'] {
-  h2{
-    height: 100px;
+  h2 {
+    height: 50px;
   }
-  img{
+  img {
     height: 183px;
   }
 }
+
 /* Responsivt layout */
 @media (max-width: 768px) {
   .blogGrid {
@@ -200,3 +214,4 @@
       "i i";
   }
 }
+//import logo from 'C:/GitHub/NewsSite_Contentful/src/assets/INGN.png'; // Importer det lokale logo

@@ -1,7 +1,7 @@
 .sortMenu {
 
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 24px;
   line-height: 28.13px;
   background-color: #fff;
@@ -10,6 +10,8 @@
   padding: 1rem;
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  
+  
 
   .logo {
     width: 5vw;
@@ -21,6 +23,7 @@
   .menuIcon {
     display: none; // Skjul burgerikonet som standard
     cursor: pointer;
+   
 
     @media (max-width: 768px) {
       display: block; // Vis burgerikonet, når skærmstørrelsen er mindre end 768px
@@ -48,6 +51,7 @@
     .categoryLinks {
       margin: 0; // Juster afstanden mellem kategorier efter behov
       position: relative; // Gør det muligt at positionere pseudoelementet i forhold til dette element
+      &:hover{text-decoration: underline;}
 
       &:not(:last-child)::after {
         content: '';

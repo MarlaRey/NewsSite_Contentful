@@ -4,6 +4,7 @@ import styles from './Navigation.module.scss';
 import { Link } from 'react-router-dom'; // Importer Link-komponenten fra React Router
 import BurgerMenu from '../BurgerMenu/BurgerMenu'; 
 import BurgerSortMenu from '../BurgerMenu/BurgerSortMenu'; 
+import logo from 'C:/GitHub/NewsSite_Contentful/src/assets/INGN.png'; // Importer det lokale logo
 
 //modtager setSelectedCategory funktionen fra Main.jsx og sender den med som en anvendelig prop 
 const SortMenu = ({ setSelectedCategory }) => {
@@ -73,8 +74,7 @@ const SortMenu = ({ setSelectedCategory }) => {
 
         <div className={styles.theMenu}>
         <div className={styles.logo}>
-          {logoUrl && <img src={logoUrl} alt="Logo" />} {/*kort betinget rendering, der tjekker om logoUrl har en værdi. Hvis logoUrl er sand, renderes <img>-elementet med logoet. Hvis logoUrl er falsk (f.eks. null eller undefined), renderes intet. */}
-        </div>
+        <img src={logo} alt="Logo" /> {/* Brug det importerede logo */}        </div>
           {/* Mapping over categories arrayet. For hver kategori i arrayet udføres handlingen at putte hvert kategorilink ind i en div med et link */}
           {categories.map((categoryName, index) => (
             <div key={index} className={styles.categoryLinks}>
